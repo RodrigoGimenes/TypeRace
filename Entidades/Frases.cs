@@ -7,6 +7,7 @@ namespace TypeRace.NovaPasta
     class Frases
     {
         public string FraseGerada;
+        public string FraseDigitada;
         private string[] lines = System.IO.File.ReadAllLines(@"C:\Users\User\source\repos\TypeRace\TypeRace\Frases.txt");
         
         public Boolean Correcao(string frase)

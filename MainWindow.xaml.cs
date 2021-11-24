@@ -1,18 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using TypeRace.NovaPasta;
+using System.Diagnostics;
+using System.Threading;
+using System.Globalization;
 
 namespace TypeRace
 {
@@ -26,31 +17,35 @@ namespace TypeRace
             InitializeComponent();
         }
         Frases frase = new Frases();
+        DateTime start;
         public void Button_Click(object sender, RoutedEventArgs e)
         {
+            start = DateTime.Now;
+            Falha.Content = "";
             frase.FraseGerada = frase.FraseAleatoria();
-            FraseParaCopiar.Text = frase.FraseGerada;
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            
+            FraseParaCopiar.Text = frase.FraseGerada.ToString(CultureInfo.InvariantCulture);
         }
 
         public void Finalizar_Click(object sender, RoutedEventArgs e)
         {
-            if (frase.Correcao(frase.FraseGerada) == true)
+            DateTime end = DateTime.Now;
+            TimeSpan tempoTotal = (end - start);
+            frase.FraseDigitada = FraseDigitada.Text;
+            if (frase.Correcao(frase.FraseDigitada) == true)
             {
-                Tempo.Text = "1";
-                LetrasDigitadas.Text = frase.NumeroDeLetras().ToString();
-                LPS.Text = "1";
+                Tempo.Text = "Tempo: " + tempoTotal.TotalSeconds.ToString("F2") + " segundos";
+                LetrasDigitadas.Text = "Letras Digitadas: " + frase.NumeroDeLetras().ToString();
+                LPS.Text = "Letras por segundo: " + (frase.NumeroDeLetras()/tempoTotal.TotalSeconds).ToString("F2");
             }
             else
             {
-                Tempo.Text = "1";
-                LetrasDigitadas.Text = "1";
-                LPS.Text = "1";
+                Falha.Content = "A frase está incorreta! Tente novamente";
             }
+        }
+
+        private void TextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+
         }
     }
 }
