@@ -6,13 +6,12 @@ namespace TypeRace.NovaPasta
 {
     class Frases
     {
-        public string Frase;
+        public string FraseGerada;
         private string[] lines = System.IO.File.ReadAllLines(@"C:\Users\User\source\repos\TypeRace\TypeRace\Frases.txt");
-        public int NumeroDeLetras;
-
+        
         public Boolean Correcao(string frase)
         {
-            if (frase == Frase)
+            if (frase == FraseGerada)
             {
                 return true;
             } else
@@ -24,5 +23,11 @@ namespace TypeRace.NovaPasta
             int num = rnd.Next(0,lines.Length);
             return lines[num];
         }
+
+        public int NumeroDeLetras()
+        {
+            return FraseGerada.Length;
+        }
+
     }
 }

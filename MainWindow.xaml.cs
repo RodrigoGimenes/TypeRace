@@ -25,16 +25,32 @@ namespace TypeRace
         {
             InitializeComponent();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        Frases frase = new Frases();
+        public void Button_Click(object sender, RoutedEventArgs e)
         {
-            Frases frase = new Frases();
-            FraseParaCopiar.Text = frase.FraseAleatoria();
+            frase.FraseGerada = frase.FraseAleatoria();
+            FraseParaCopiar.Text = frase.FraseGerada;
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             
+        }
+
+        public void Finalizar_Click(object sender, RoutedEventArgs e)
+        {
+            if (frase.Correcao(frase.FraseGerada) == true)
+            {
+                Tempo.Text = "1";
+                LetrasDigitadas.Text = frase.NumeroDeLetras().ToString();
+                LPS.Text = "1";
+            }
+            else
+            {
+                Tempo.Text = "1";
+                LetrasDigitadas.Text = "1";
+                LPS.Text = "1";
+            }
         }
     }
 }
