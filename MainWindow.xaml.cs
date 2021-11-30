@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Windows;
 using TypeRace.NovaPasta;
-using System.Diagnostics;
-using System.Threading;
 using System.Globalization;
 
 namespace TypeRace
@@ -22,8 +20,8 @@ namespace TypeRace
         {
             start = DateTime.Now;
             Falha.Content = "";
-            frase.FraseGerada = frase.FraseAleatoria();
-            FraseParaCopiar.Text = frase.FraseGerada.ToString(CultureInfo.InvariantCulture);
+            frase.FraseGerada = frase.FraseAleatoria(); 
+            FraseParaCopiar.Text = frase.FraseGerada;
         }
 
         public void Finalizar_Click(object sender, RoutedEventArgs e)
