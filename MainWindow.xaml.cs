@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows;
-using TypeRace.NovaPasta;
+using TypeRace.Entidades;
 using System.Globalization;
 
 namespace TypeRace
@@ -14,30 +14,30 @@ namespace TypeRace
         {
             InitializeComponent();
         }
-        Frases frase = new Frases();
+        Sentence sentence = new Sentence();
         DateTime start;
         public void Button_Click(object sender, RoutedEventArgs e)
         {
             start = DateTime.Now;
-            Falha.Content = "";
-            frase.FraseGerada = frase.FraseAleatoria(); 
-            FraseParaCopiar.Text = frase.FraseGerada;
+            Failed.Content = "";
+            sentence.GeneratedSentence = sentence.RandomSentence(); 
+            SentenceToCopy.Text = sentence.GeneratedSentence;
         }
 
         public void Finalizar_Click(object sender, RoutedEventArgs e)
         {
             DateTime end = DateTime.Now;
-            TimeSpan tempoTotal = (end - start);
-            frase.FraseDigitada = FraseDigitada.Text;
-            if (frase.Correcao(frase.FraseDigitada) == true)
+            TimeSpan totalTime = (end - start);
+            sentence.TypedSentence = TypedSentence.Text;
+            if (sentence.SentenceCorrection(sentence.TypedSentence) == true)
             {
-                Tempo.Text = "Tempo: " + tempoTotal.TotalSeconds.ToString("F2") + " segundos";
-                LetrasDigitadas.Text = "Letras Digitadas: " + frase.NumeroDeLetras().ToString();
-                LPS.Text = "Letras por segundo: " + (frase.NumeroDeLetras()/tempoTotal.TotalSeconds).ToString("F2");
+                Time.Text = "Tempo: " + totalTime.TotalSeconds.ToString("F2") + " segundos";
+                TypedLetters.Text = "Letras Digitadas: " + sentence.LettersCount().ToString();
+                LPS.Text = "Letras por segundo: " + (sentence.LettersCount()/totalTime.TotalSeconds).ToString("F2");
             }
             else
             {
-                Falha.Content = "A frase está incorreta! Tente novamente";
+                Failed.Content = "A frase está incorreta! Tente novamente";
             }
         }
 

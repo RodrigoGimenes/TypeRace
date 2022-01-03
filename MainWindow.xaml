@@ -7,15 +7,15 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBox x:Name="FraseParaCopiar" HorizontalAlignment="Center" Height="30" Margin="0,124,0,0" Text="A frase a ser copiada irá ser mostrada aqui." TextWrapping="Wrap" VerticalAlignment="Top" Width="700" TextChanged="TextBox_TextChanged" IsEnabled="False"/>
-        <TextBox x:Name="FraseDigitada" HorizontalAlignment="Center" Height="30" Margin="0,170,0,0" Text="Copiar a frase aqui." TextWrapping="Wrap" VerticalAlignment="Top" Width="700"/>
+        <TextBox x:Name="SentenceToCopy" HorizontalAlignment="Center" Height="30" Margin="0,124,0,0" Text="A frase a ser copiada irá ser mostrada aqui." TextWrapping="Wrap" VerticalAlignment="Top" Width="700" TextChanged="TextBox_TextChanged" IsEnabled="False"/>
+        <TextBox x:Name="TypedSentence" HorizontalAlignment="Center" Height="30" Margin="0,170,0,0" Text="Copiar a frase aqui." TextWrapping="Wrap" VerticalAlignment="Top" Width="700"/>
         <TextBlock HorizontalAlignment="Left" Height="45" Margin="234,27,0,0" Text="Para testar sua velocidade, aperte no botão &quot;Começar&quot; e então digite a frase que irá aparecer abaixo." TextWrapping="Wrap" VerticalAlignment="Top" Width="297"/>
         <Button Content="Começar" HorizontalAlignment="Left" Height="27" Margin="324,77,0,0" VerticalAlignment="Top" Width="138" ClickMode="Press" Click="Button_Click"/>
-        <TextBlock x:Name="Tempo" HorizontalAlignment="Left" Height="24" Margin="50,255,0,0" Text="Tempo: " TextWrapping="Wrap" VerticalAlignment="Top" Width="205"/>
-        <TextBlock x:Name="LetrasDigitadas" HorizontalAlignment="Left" Height="24" Margin="50,279,0,0" Text="Letras digitadas: " TextWrapping="Wrap" VerticalAlignment="Top" Width="205"/>
+        <TextBlock x:Name="Time" HorizontalAlignment="Left" Height="24" Margin="50,255,0,0" Text="Tempo: " TextWrapping="Wrap" VerticalAlignment="Top" Width="205"/>
+        <TextBlock x:Name="TypedLetters" HorizontalAlignment="Left" Height="24" Margin="50,279,0,0" Text="Letras digitadas: " TextWrapping="Wrap" VerticalAlignment="Top" Width="205"/>
         <TextBlock x:Name="LPS" HorizontalAlignment="Left" Height="24" Margin="50,303,0,0" Text="Letras por segundo: " TextWrapping="Wrap" VerticalAlignment="Top" Width="304"/>
         <Button x:Name="Finalizar" Content="Finalizar" HorizontalAlignment="Left" Height="25" Margin="50,217,0,0" VerticalAlignment="Top" Width="118" Click="Finalizar_Click"/>
-        <Label x:Name="Falha" Content="" HorizontalAlignment="Center" Height="37" Margin="0,205,0,0" VerticalAlignment="Top" Width="292" Background="White"/>
+        <Label x:Name="Failed" Content="" HorizontalAlignment="Center" Height="37" Margin="0,205,0,0" VerticalAlignment="Top" Width="292" Background="White"/>
 
     </Grid>
 </Window>

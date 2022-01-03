@@ -2,32 +2,32 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TypeRace.NovaPasta
+namespace TypeRace.Entidades
 {
-    class Frases
+    class Sentence
     {
-        public string FraseGerada;
-        public string FraseDigitada;
+        public string GeneratedSentence;
+        public string TypedSentence;
         private string[] lines = System.IO.File.ReadAllLines(@"C:\Users\User\source\repos\TypeRace\TypeRace\Frases.txt");
         
-        public Boolean Correcao(string frase)
+        public Boolean SentenceCorrection(string frase)
         {
-            if (frase == FraseGerada)
+            if (frase == GeneratedSentence)
             {
                 return true;
             } else
             return false;
         }
-        public string FraseAleatoria()
+        public string RandomSentence()
         {
             Random rnd = new Random();
             int num = rnd.Next(0,lines.Length);
             return lines[num];
         }
 
-        public int NumeroDeLetras()
+        public int LettersCount()
         {
-            return FraseGerada.Length;
+            return GeneratedSentence.Length;
         }
 
     }
